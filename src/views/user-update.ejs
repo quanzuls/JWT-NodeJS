@@ -1,0 +1,50 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+        integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="user-info-container">
+                <form method="POST" action="/user/update-user/">
+
+                    <div class="mt-3">
+                        <h3>Update new user</h3>
+                    </div>
+                    <input type="text" hidden value="<%=userData.id%>" name="id">
+                    <div class="mb-3 mt-3 col-6">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" value="<%=userData.email%>" name="email" class="form-control" id="email"
+                            required>
+                    </div>
+                    <div class="col-6"></div>
+                    <div class="col-6 pb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" value="<%=userData.username%>" name="username" class="form-control"
+                            id="username" required>
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-success">Update</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
