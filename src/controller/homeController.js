@@ -41,10 +41,9 @@ const getUpdateUserPage = async (req, res) => {
     return res.render("user-update.ejs", { userData });
 }
 const handleUpdateUser = async (req, res) => {
-    let email = req.body.email;
-    let username = req.body.username;
-    let id = req.body.id;
-    await userService.updateUser(email, username, id);
+    let userInfo = req.body;
+    console.log(">>check body update: ", req.body);
+    await userService.updateUser(userInfo);
 
     return res.redirect('/user');
 }

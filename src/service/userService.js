@@ -52,18 +52,21 @@ const getUserById = async (userId) => {
     })
     return user;
 }
-const updateUser = async (email, username, userId) => {
+const updateUser = async (userObject) => {
 
     // const connection = await mysql.createConnection({ host: 'localhost', user: 'root', database: 'jwt', Promise: bluebird });
     // const [rows, fields] = await connection.execute('UPDATE user SET email = ?, username =? WHERE id=?', [email, username, id]);
     // return rows;
+    const { id, fullname, gender, email, password, username } = userObject;
     let userUpdated = await db.User.update(
         {
             email,
-            username
+            username,
+            fullname,
+            gender
         }
         , {
-            where: { id: userId }
+            where: { id: id }
         })
     return userUpdated;
 }

@@ -16,7 +16,7 @@ module.exports = {
       "fullname": "Blisse Sawyer",
       "username": "bsawyer0",
       "email": "bsawyer0@reddit.com",
-      "gender": "Genderqueer",
+      "gender": "Female",
       "password": "j2GsvWx"
     }, {
       "id": 2,
