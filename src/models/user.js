@@ -13,8 +13,9 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  //Object Relational Mapping
   User.init({
+    fullname: DataTypes.STRING,
+    gender: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
     username: DataTypes.STRING
