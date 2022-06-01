@@ -2,13 +2,19 @@ import Utils from "../utils/Utils";
 import mysql from 'mysql2/promise';
 import bluebird from 'bluebird';
 import db from "../models/index";
-const createNewUser = async (email, password, username) => {
+
+
+const createNewUser = async (newUser) => {
+    const { email, password, username, fullname, gender } = newUser;
     let hashPassword = Utils.hashUserPassword(password);
+
     try {
         await db.User.create({
-            username: username,
-            email: email,
-            password: Utils.hashUserPassword(password)
+            username,
+            email,
+            fullname,
+            gender,
+            password: hashPassword
         })
     } catch (error) {
         console.log(error);

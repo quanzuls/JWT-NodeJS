@@ -12,11 +12,8 @@ const handleUserPage = async (req, res) => {
 
 }
 const handleCreateNewUser = (req, res) => {
-    let email = req.body.email;
-    let password = req.body.password;
-    let username = req.body.username;
-
-    userService.createNewUser(email, password, username);
+    let newUser = req.body;
+    userService.createNewUser(newUser);
     return res.redirect('/user');
 
 
@@ -30,14 +27,7 @@ const handleDeleteUser = async (req, res) => {
 const getUpdateUserPage = async (req, res) => {
     let user = await userService.getUserById(req.params.id);
     let userData = {};
-
-    // if (user && user.length > 0) {
-    //     userData = user[0];
-    // }
     userData = user;
-
-    console.log(userData);
-
     return res.render("user-update.ejs", { userData });
 }
 const handleUpdateUser = async (req, res) => {
