@@ -22,6 +22,19 @@ const createNewUser = async (newUser) => {
     }
 }
 const getUserList = async () => {
+
+    // //test relationship
+
+    // let group = await db.Group.findAll({
+    //     attributes: ['name', 'description'],
+    //     where: { id: 1 },
+    //     include: { model: db.Role, attributes: ['id', 'url', 'description'], }
+    // })
+    // console.log(">>check new role : ", JSON.stringify(group, null, 2));
+
+
+
+    //Call get all users from user table
     let users = []
     try {
         users = await db.User.findAll();
@@ -29,7 +42,15 @@ const getUserList = async () => {
     } catch (error) {
         console.log(error);
     }
-    return users;
+
+    //Call get all user from user table join role table using sequelize
+    let usersAndRole = await db.User.findAll({
+        include: {
+            model: db.Group,
+            attributes: ['name', 'description'],
+        },
+    })
+    return usersAndRole;
 }
 const deleteUser = async (userId) => {
     // const connection = await mysql.createConnection({ host: 'localhost', user: 'root', database: 'jwt', Promise: bluebird });
@@ -56,7 +77,7 @@ const getUserById = async (userId) => {
     user = await db.User.findOne({
         where: { id: userId }
     })
-    return user;
+    return user.get({ plain: true });
 }
 const updateUser = async (userObject) => {
 

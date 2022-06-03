@@ -33,9 +33,9 @@
                         <tr>
                             <th scope="col">ID</th>
                             <th scope="col">Email</th>
-                            <th scope="col">User Name</th>
+                            <th scope="col">Phone</th>
                             <th scope="col">Full Name</th>
-                            <th scope="col">Gender</th>
+                            <th scope="col">Role</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -49,14 +49,16 @@
                                     <%= item.email %>
                                 </td>
                                 <td>
-                                    <%= item.username %>
+                                    <%= item.phone %>
                                 </td>
                                 <td>
                                     <%= item.fullname %>
                                 </td>
+
                                 <td>
-                                    <%= item.gender %>
+                                    <%= item.Group.description %>
                                 </td>
+
                                 <td>
 
                                     <a href="/update-user/<%=item.id%>" class="btn btn-success">Edit</a>
