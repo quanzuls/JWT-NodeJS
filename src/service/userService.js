@@ -28,7 +28,9 @@ const getUserList = async () => {
     // let group = await db.Group.findAll({
     //     attributes: ['name', 'description'],
     //     where: { id: 1 },
-    //     include: { model: db.Role, attributes: ['id', 'url', 'description'], }
+    //     include: { model: db.Role, attributes: ['id', 'url', 'description'], },
+    //      raw:true,
+    //      nest:true,
     // })
     // console.log(">>check new role : ", JSON.stringify(group, null, 2));
 

@@ -85,6 +85,12 @@ const handleUserLogin = async (rawData) => {
                     EC: 0,
                     DT: ''
                 }
+            } else {
+                return {
+                    EM: 'Your email/phone number or password is incorrect! ...',
+                    EC: 1,
+                    DT: ''
+                }
             }
         }
         else {
